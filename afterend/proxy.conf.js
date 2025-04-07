@@ -17,33 +17,11 @@ const PROXY_CONFIG = {
           return request.url;
         } else if (request.url.toUpperCase().indexOf('STYLE.CSS') > -1)
         {
-          //fs.createReadStream('style.css').pipe(resp);
-          //const stream = fs.createReadStream('style.css');
-          //stream.on('readable', () => {
-          //  let chunk;
-          //  setTimeout(() => {
-          //    while (null !== (chunk = stream.read())) {
-          //      resp.write(chunk);
-          //    }
-          //  }, 1);
-          //});
-          return request.url;
+          fs.createReadStream('style.css').pipe(resp);
         } else {
           resp.setHeader('Content-Type', 'text/html; charset=utf-8');
           return '/index.html';
         }
-        //const path = 'style.css';
-        //fs.createReadStream(path).pipe(resp);
-        //
-        //const content = fs.readFileSync(path, 'utf-8');
-        //resp.end(content);
-        //const stream = fs.createReadStream(path);
-        //stream.on('readable', () => {
-        //  let chunk;
-        //  while (null !== (chunk = stream.read())) {
-        //    resp.write(chunk);
-        //  }
-        //});
       } catch (e)
       {
         console.log(e);

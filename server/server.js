@@ -7,7 +7,7 @@ const PORT = 3000;
 
 const server = http.createServer((req, res) => {
     console.log(req.url);
-    if (req.url === '/assets/style.css') {
+    if (req.url.indexOf('style.css') > -1) {
         const filePath = path.join(__dirname, 'style.css');
 
         fs.readFile(filePath, 'utf-8', (err, data) => {
